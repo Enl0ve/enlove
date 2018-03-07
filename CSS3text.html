@@ -8,6 +8,107 @@
 <meta name="keywords" content="">
 <link href="" rel="stylesheet">
 <style>
+	body{
+		/*background-image: -webkit-linear-gradient(left, black 10%, white 50%, black);*/
+		-webkit-animation-name: backgroundGlow;
+		-webkit-animation-duration: 3s;
+		-webkit-animation-timing-function: ease;
+		-webkit-animation-delay:1s; 
+		/*-webkit-animation-iteration-count:infinite;*/
+		-webkit-animation-iteration-count:2;
+		-webkit-animation-direction: alternate
+		-moz-animation-name: backgroundGlow;
+		-moz-animation-duration: 3s;
+		-moz-animation-timing-function: ease;
+		-moz-animation-delay: 1s;
+		/*-moz-animation-iteration-count:infinite;*/
+		-moz-animation-iteration-count:2;
+		-moz-animation-direction:alternate;
+		-o-animation-name: backgroundGlow;
+		-o-animation-duration: 3s;
+		-o-animation-timing-function: ease;
+		-o-animation-delay: 1s;
+		/*-o-animation-iteration-count:infinite;*/
+		-o-animation-iteration-count:2;
+		-o-animation-direction: alternate;
+		animation-name: backgroundGlow;
+		animation-duration: 3s;
+		animation-timing-function: ease;
+		animation-delay: 1s;
+		/*animation-iteration-count:infinite;*/
+		animation-iteration-count:2;
+		animation-direction: alternate;
+	}
+
+	@-webkit-keyframes backgroundGlow{
+			from{
+				background-color: yellow;
+				animation-timing-function: cubic-bezier(1, .03, 1, .115);
+			}
+
+			50%{
+				transform: scale(1.5);
+				background-color: blue;
+				animation-timing-function: linear;
+			}
+
+			to{
+				transform: scale(3);
+				background-color: red;
+			}
+		}
+	@-moz-keyframes backgroundGlow{
+			from{
+				background-color: yellow;
+				animation-timing-function: cubic-bezier(1, .03, 1, .115);
+			}
+
+			50%{
+				transform: scale(1.5);
+				background-color: blue;
+				animation-timing-function: linear;
+			}
+
+			to{
+				transform: scale(3);
+				background-color: red;
+			}
+		}
+	@-o-keyframes backgroundGlow{
+			from{
+				background-color: yellow;
+				animation-timing-function: cubic-bezier(1, .03, 1, .115);
+			}
+
+			50%{
+				transform: scale(1.5);
+				background-color: blue;
+				animation-timing-function: linear;
+			}
+
+			to{
+				transform: scale(3);
+				background-color: red;
+			}
+		}
+	@keyframes backgroundGlow{
+			from{
+				background-color: yellow;
+				animation-timing-function: cubic-bezier(1, .03, 1, .115);
+			}
+
+			50%{
+				transform: scale(1.5);
+				background-color: blue;
+				animation-timing-function: linear;
+			}
+
+			to{
+				transform: scale(3);
+				background-color: red;
+			}
+		}
+
 	h1{
 		text-shadow: -4px 4px 5px #60F;
 		text-align: center;
@@ -28,6 +129,118 @@
 		font-family: "Century Gothic", "Gill Sans", sans-serif;
 		font-weight: bold;
 		font-style:italic; 
+		font-size: 20px;
+	}
+	div{
+		margin:0; 
+		padding: 0;
+		border:4px dashed #000000;
+		width: 400px;
+		border-radius: 40px/20px;
+		box-shadow: inset 10px 5px 10px rgba(0,100,100,5),
+					10px 5px rgba(0,100,100,5);
+
+	/*	background-color: red;*/
+	}
+	#test{
+		width:50px;
+		height:100px;
+		padding: 10px;
+		border:4px dashed #000000;
+		overflow: scroll;
+		box-shadow: inset 10px 5px 10px rgba(0,100,100,5),
+					10px 5px rgba(0,100,100,5);
+		float: right;
+	}
+
+	h3:nth-child(7) > a{
+		text-decoration: none;
+	}
+
+	h3:nth-child(7) > a:hover{
+		color:yellow;
+		background-color: orange;
+		-webkit-transition-property: color, background-color, border-color;
+		-moz-transition-property: color, background-color, border-color;
+		-o-transition-property: color, background-color, border-color; 
+		transition-property: color, background-color, border-color;
+		-webkit-transition-duration: .25s, .75s, 2s;
+		-moz-transition-duration: .25s, .75s, 2s;
+		-o-transition-duration: .25s, .75s, 2s;
+		transition-duration:.25s, .75s, 2s;
+		/*-webkit-transition-timing-function: linear;
+		-moz-transition-timing-function: linear;
+		-o-transition-timing-function: linear;
+		transition-timing-function: linear;*/
+		/*delay*/
+		-webkit-transition-delay: .5s;
+		-moz-transition-delay: .5s;
+		-o-transition-delay: .5s;
+		transition-delay: .5s;
+	}
+	/*h3>a:hover{
+		color:yellow;
+		background-color: orange;
+	}*/
+	.nav{
+		color:black;
+		background-color:#FF6603;
+		border:#660034;
+		transition-property: color, background-color, border-color;
+		transition-duration: 1s, 1s, .5s;
+		transition-delay: 0, 0, 1s;
+	}
+
+	.nav:hover{
+		color: white;
+		background-color: #660034;
+		border-color:#FF6603;
+	}
+
+	@keyframes buttonGlow{
+		from{
+			/*color:black;
+			background-color:#FF6603;
+			border:#660034;
+			transition-property: color, background-color, border-color;
+			transition-duration: 1s, 1s, .5s;
+			transition-delay: 0, 0, 1s;*/
+			transform: scale(2);
+		}
+		to{
+			transform: scale(1);
+		}
+	}
+	/*为什么不对呢？？*/
+	.nav2:hover{
+		/*-webkit-animation-name: buttonGlow;
+		-webkit-animation-duration: 3s;
+		-webkit-animation-timing-function: ease;
+		-webkit-animation-delay:1s; 
+		-webkit-animation-iteration-count:2;
+		-webkit-animation-direction: alternate
+		-moz-animation-name: buttonGlow;
+		-moz-animation-duration: 3s;
+		-moz-animation-timing-function: ease;
+		-moz-animation-delay: 1s;
+		-moz-animation-iteration-count:2;
+		-moz-animation-direction:alternate;
+		-o-animation-name: buttonGlow;
+		-o-animation-duration: 3s;
+		-o-animation-timing-function: ease;
+		-o-animation-delay: 1s;
+		-o-animation-iteration-count:2;
+		-o-animation-direction: alternate;
+		animation-name: buttonGlow;
+		animation-duration: 3s;
+		animation-timing-function: ease;
+		animation-delay: 1s;
+		animation-iteration-count:2;
+		animation-direction: alternate;*/
+		background-color: red;
+		transition: transform .5s, background-color 1s ease-in .5s;
+		transform: scale(1.2);
+
 	}
 </style>
 </head>
@@ -38,7 +251,18 @@
     <h2>Wooden Crates Make Excellent Hiding Places</h2>
     <h2>Wet Sod is Heavy Sod</h2>
     <h3>created by <strong><em>enlove</em></strong></h3>
-    <h3>created by</h3>
+    <h3>created by<a href="www.w3cschool.com" title="W3C">	W3C</a></h3>
     <h4>日期为：<strong></strong></h4>
+    <div id="one">
+    	<p>this is content</p>
+    </div>
+    <div id="test">
+    	<p>this is a test tell us what are the differences between visable/scroll/auto/hidden</p>
+    </div>
+    <br/>
+    <input type="button" name="" class="nav" value="这是一个按钮">
+    <br/>
+    <br/>
+    <input type="button" name="" class="nav2" value="这是另一个按钮">
 </body>
 </html>

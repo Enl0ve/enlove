@@ -127,4 +127,257 @@
  * 			HSL比RGB或十六进制颜色值都更加直观。但是如果你觉得它不容易理解，可以不使用。
  *    	HSLA
  *    		与RGB和RGBA使用方法类似。
+ *
+ * margin\padding\border
+ * 		每个HTML标签都被无数个属性包围着，有些属性事实看不见的，如padding(填充)和margin(边距)，它们在标签的一边
+ * 		或多边添加一些空格。
+ *
+ * 		理解盒模型
+ * 			web浏览器把标签当做盒子，对于浏览器而言，任何标签都是里面装有东西的盒子，包括文本、图片或者包含别的东西
+ * 			的其他标签。
+ *
+ * 			内容的周围通常环绕者装饰盒子的不同属性：
+ * 				padding 是指内容与其边框线之间的空间
+ * 				border 是指盒子周边的直线。可以4个边周围都有一条边框线，也可以只有任意一边又边框线，或者其他任意几个
+ * 				边有边框线。
+ * 				background-color 是用来填充边框内部空间的，包括padding区域。
+ * 				margin 是指一个标签和另一个标签之间的间隔。
+ *
+ * 				例子：margin: 0 10px 10px 20px; 这4个值得顺序很重要，他必须按照top\right\bottom\left的顺序。
+ * 				口诀:要避免TRouBLe.
+ *
+ * 			边距冲突
+ * 				在CSS中，二加二并不等于四。当元素的bottom margin碰到另一个元素的top margin时，就可能出现一些怪异
+ * 				的算术。此时浏览器不是把这两个边距相加，而是应用它们中较大的那一个。如果你不希望这种问题发生，那么就
+ * 				用top padding和bottom padding来代替。
+ *
+ * 			行内盒子、块级盒子及其他显示设置
+ * 				虽然web浏览器吧每一个标签都当做盒子来处理，但是并非所有的盒子都是相同的。CSS有两种不同的盒子类型:
+ * 				block box(块级盒子)和inline box(行内盒子)，它们分别对应于两个标签类型：块级标签和行内标签;
+ * 				块级标签在其前后都会产生一些空格。例如，<p>标签创建了一个与上下标签分离的块。标题、<div>标签、表格和列表
+ * 				都属于块级标签的其他例子。
+ * 				行内标签不会再前后产生空格。
+ * 				CSS提供的display属性，有了它，就可以使块级元素像行内元素一样，display:inline;反之，也可以使行内元素
+ * 				像块级元素一样：display:block;
+ * 			border
+ * 				每个border都通过3个不同的属性进行控制：color(颜色)、width（宽度）和style（样式）。
+ * 				例子 border: 4px solid #F00;
+ *
+ * 			创建圆角
+ * 				CSS3中引入了border-radius属性，让设计师能够给一个元素或者多个角添加弧形。
+ * 				例如：border-radius:20px;
+ * 				浏览器利用你提供的半径值，在元素的每一个角都画一个圆。这个值相当于从圆心到边的距离，即它的半径。
+ * 				但是并不是只能给每个角都使用相同的值，你可以提供四个值，给每个角都提供不同的值。
+ * 				如：border-radius: 20px 20px 20px 20px
+ * 				这些值是从方框的左上角开始，沿顺时针进行的。
+ * 				还可以提供两个以/隔开的值（如：border-radius:40px/20px）
+ * 				"/"的目的是让浏览器知道你在创建一个椭圆形轨迹
+ * 				
+ * 			添加阴影
+ * 				boxshadow
+ * 				第一个值为水平偏移量，第二个值为垂直偏移量，第三个值为阴影的半径，最后一个值为阴影的颜色，你可以
+ * 				使用任何CSS颜色值，不过RGBA值看起来特别好，因为可以控制颜色的透光度，是他看起来更透明，更像阴影。
+ * 				boxshadow属性中还包括两个可选的值：inset关键字和阴影尺寸（spread）。关键字inset告诉浏览器要将阴影
+ * 				画在方框内部。
+ * 				你还可以添加一个阴影的尺寸（spread）作为第4个值，他的作用是将水平方向和垂直方向的阴影进行扩展。另外，
+ * 				这个值还表示什么时候要应用模糊半径。换句话说，在添加阴影的尺寸值时，阴影的模糊尚未开始，知道应用了阴影
+ * 				的尺寸值时才开始。
+ *
+ * 			确定高度和宽度
+ *
+ * 			控制重复
+ * 				background-repeat
+ * 				如果单独使用background属性，图片将总是平铺，填满整个网页的整个背景。我们可以利用background-repeat属性指定图片是否要平铺。
+ * 				如：background-repeat:no-repeat;
+ * 				该属性接收4个值：reapeat,no-repeat,repeat-x,repeat-y;
+ * 				其中repeat-x是沿着X轴（指网页水平方向的宽度）水平地重复某一张图片。用它在网页的顶部添加图片形横幅就非常理想。也可以沿着一个标题
+ * 				的上方或者下方添加装饰边框线。
+ * 				repeat-y是沿着Y轴（指网页垂直方向的高度）垂直地重复某一张图片。可以用这个设置给网页添加图形侧边栏，或者在网页元素的任意一边重复
+ * 				添加阴影。
+ *
+ * 			定位背景图片
+ * 				用background-position这种属性，CSS允许你以很多种方式来精确控制图片的位置。你可以通过3中不同的方法来设定图片在水平方向和垂直
+ * 				方向的起点。它们分别是keyword,精确值和percentage。
+ * 				关键字的选项有两组，一组用来控制水平方向的3种定位：left\center\right。另一组用来控制垂直方向的3种定位：top\center\bottom。假如
+ * 				要把图片直接放到网页的中央，可以创建这样的样式：
+ * 					body{
+ * 						background-image:url(..);
+ * 						background-repeat:no-repeat;
+ * 					 	background-position:center center;
+ * 					}
+ *
+ * 			如何固定图片
+ * 				background-attachment属性，两个选项scroll和fixed。scroll是浏览器的默认做法， 即背景图片会随着文本和其他网页内容一起滚动。
+ * 				而fixed则是把图片保持在背景中的某个固定位置上。因此，如果需要把网站的logo固定在网页的左上角，并确保在访问者滚动网页时他也能保持
+ * 				在那个位置上，可以创建一个像这样的样式：
+ * 					body{
+ * 					background-image:url(...);
+ * 					background-position:center center;
+ * 					background-repeat:no-repeat;
+ * 					background-attachment:fixed;
+ * 					}
+ *
+ * 			定位背景图片的background-origin和background-clip属性
+ * 				background-origin的属性值有三个:border-box（将图片显示在border区域的左上角）\padding-box（将图片放在paddding区域的左上角）\content-box（将图片放在内容区域的右上角）;
+ *
+ * 			背景图片的大小缩放
+ * 				background-size属性，两个值，分别是宽和高
+ * 				例如：background-size：100px 200px;
+ * 				其中，宽是100px,高是200px.
+ * 				属性的值也可以是关键字contain和cover.contain会迫使图片进行尺寸调整，以便保持图片的长宽比。根据图片的形状和元素，图片会进行伸展，以便适应元素的宽度或者高度。
+ * 				关键字cover会迫使图片的宽度或高度进行调整，以便适应元素的宽度或高度。为了适应元素，他通常会将图片进行挤压或拉伸，导致图片发生扭曲。
+ *
+ * 			background的快捷属性
+ * 		 		顺序是background,background-image,background-position,background-repeat,background-attachment和background-color。
+ * 		 	 	例如下面的样式是将背景设置成白色,并将一张不重复的固定背景图片轻轻贴在网页的正中央。
+ * 		 		body{
+ * 		 		background:url(...) center center no-repeat fixed #FFF;}
+ *
+ * 			使用渐变色背景
+ * 				background-image:linear-gradient(left,black,white);
+ * 				(注意：大多数浏览器为了让它生效，需要加一个供应商前缀)
+ * 				另外，为了表明起始位置，可以使用left,right,top,bottom等。事实上，如果想让渐变斜着穿过元素，可以合并使用多个关键字。例如，为了画出一个从元素的左上角移到右上角，
+ * 				并且是从黑色变到白色的渐变效果，可以像这样写：
+ * 					background-image: linear-gradient(top left, background,white);
+ * 				除了关键字之外，你还可以使用程度值，表示渐变的方向。这个程度值是一个位于0~360之间的值，后面加上deg写成的。基本原理是这样的：0deg表示从左边开始，移到右边，而45deg是表示
+ * 				从左下角开始，呈45度角向上移到右上角。
+ * 				运营商前缀：
+ * 					chrome和safari:background-image:-webkit-linear-gradient(top left, background,white);
+ * 					firfox为：background-image:-moz-linear-gradient(top left, background,white);
+ * 					opera的为：background-image:-o-linear-gradient(top left, background,white);
+ *
+ * 			径向渐变
+ * 				CSS还提供了一种创建径向渐变（是指以圆形或者椭圆形模式向外辐射）的方法。它的语法与线性渐变类似，它最简单的形式就是只需要提供起始色（处于渐变中间的颜色）和一种终止色（处于渐变终点的颜色）。
+ * 				例如:background-image: radial-gradient(red, blue);
+ * 				同样的，可以使用关键字和确定值来定位渐变的中心点。
+ *
+ *装饰网站导航
+ *			理解链接状态：
+ *				在使用伪类来操作导航栏的链接状态时，必须以特定的顺序指定链接，即link,visited,hover,active。用一个简单的方法记住就是LoVe/HAte。
+ *				例如：
+ *					a:link{color:#F60;};
+ *					a:visited{color:#F60;};	
+ *					a:hover{color:#F60;};	
+ *					a:active{color:#F60;};
+ *
+ * 			animation
+ * 				CSS3还提供了一种具有更多特性的机制用来创建动画。使用CSS3 transition时，只能从一组CSS属性转变到另一组CSS属性。CSS3 animation则可以从一组属性转变到另一组属性，在转变到另一组属性，
+ * 				等等。此外，也可以让某一个动画重复，或者在有访问者的鼠标经过它时暂停，甚至让动画结束后立即自动结束。
+ *
+ * 				创建动画的第一步是创建一组关键帧(keyframe)。在动画中，关键帧是指展示画面的一帧动画。假设第一个关键帧显示有一个球在足球场的一边。通过添加第二个关键帧，则可以定义动画的结束点，比如球在
+ * 				足球场另一边的球门里面。那么Web浏览器就会绘制出所有的中间的步骤，创建这两个关键帧之间的动画，即球穿过整个球场进了球门。
+ *
+ * 				在transition中，你定义两个样式，并让浏览器以动画形式展示一个样式到另一个样式的变化过程。在这里，可以把每一个样式当成关键帧。但是CSS3 animation允许定义多个关键帧，因此可以创建出更加
+ * 				复杂的动画效果，比如让一个足球从球场的一侧飞出，经过一个球员，再传到另一个球员，然后进了球员。
+ *
+ * 				创建动画有两个步骤：
+ * 					1.定义动画。这包括创建关键帧，即列出要创建动画的CSS属性。
+ * 					2.将动画应用到元素上。定义完之后，就可以将动画应用给网页上任意数量的元素。你甚至可以给每个元素设置不同的时限、延迟以及其它动画属性。因此，可以在一个网站上多次使用同一个动画，只是其
+ * 					设置稍有不同。
+ *
+ * 				如何定义关键帧
+ * 					第一步是定义关键帧。其语法可能看起来显得有些怪异，以下是它的基本结构：
+ * 						@keyframes animationName{
+ * 						           from{
+ * 						           	//list CSS properties here
+ * 						           }
+ *
+ * 								   to{
+ * 								    //list CSS properties here
+ * 								   }
+ * 						}
+ *       			它以@keyframes开头，紧接着是一个名称。这个名称就是该动画的名字。随后，当你将动画应用给网页上的某个元素时，最终要用到这个名称，因此尽量让它做到顾名思义，比如"fadeOut"或者"fadeIn"。
+ *       			然后至少两个关键帧。在本例中，关键字from和to用来创建起始关键帧（from）和结束关键帧(to)。在每个关键帧中，可以添加一个或者多个CSS属性，事实上，可以把每个关键帧当做是带有一个或者多个CSS
+ *       			属性的一个CSS样式。例如，假设想要创建一个动画，让一个元素淡入视图，就可以让opacity值先为0（不可见），再以1结束（完全可见）。
+ *       				@keyframes fadeIn{
+ *       				           from{
+ *       				           	opacity:0;
+ *       				           }
+ *
+ * 								   to{
+ * 								    opacity:1;
+ * 								   }
+ *       				}
+ *       			当然，并非仅限于定义两个关键帧。你可以用百分比值定义多个关键帧。百分比表示该变化在整个动画中应该发生多久。例如，假设想要创建一种让元素的背景色让黄色变成蓝色再变成红色的效果，可以这样写：
+ *       				@keyframes backgroundGlow{
+ *       				           from{
+ *       				            background-color:yellow;
+ *       				           }
+ *
+ * 								   50%{
+ * 								   	background-color:blue;
+ * 								   }
+ *
+ * 								   to{
+ * 								   	background-color:red;
+ * 								   }
+ *       				           }
+ *               如何应用animation
+ *                  一旦创建关键帧，动画就准备好了。但是要让他生效，还需要将它应用到网页上的某个元素。可以给网页上任何元素的任何样式添加动画。
+ *                  例如：
+ *                  body{
+						-webkit-animation-name: backgroundGlow;
+						-webkit-animation-duration: 1s;
+						-moz-animation-name: backgroundGlow;
+						-moz-animation-duration: 1s;
+						-o-animation-name: backgroundGlow;
+						-o-animation-duration: 1s; 
+						animation-name: backgroundGlow;
+						animation-duration: 1s;
+					}
+				如何给animation定时
+					animation-duration属性可以控制动画的时长。像transition一样，也可以利用毫秒或者秒来定义这个持续时长。
+					像transition一样，也可以设置特定的定时函数来控制动画在整个过程中的速度。
+				如何完成animation
+					在CSS中，还可以控制动画的许多额外的特性，包括是重复动画，当动画要运行不止时它应该往哪个方向运行动画，以及当动画完成时浏览器应该如何格式化该元素，等等。
+					transiton是只能运行一次的动画，比如鼠标经过一个按钮时，让按钮突然放大。但是，通过animation-iteration-count属性，可以让一个动画运行10次，那么可以将
+					以下代码添加到要创建的动画的样式中：
+					animation-iteration-count:10;
+
+					另外，如果你希望动画继续运行，那么可以使用animation-iteration-count属性，并且使用关键字infinite为值。这样动画就可以无限运行下去了。
+
+					此外，为了使一个动画在奇数在奇数次时朝前运行，在偶数次后退运行，可以使用animation-direction属性和关键字alternate。例如：animation-direction:alternate;
+
+					无论让web浏览器将一个动画运行多少次，一旦动画完成，浏览器都会以运行动画之前的初始状态来显示该元素。例如，假设给一张图片创建动画，它慢慢地放大到原来的两倍大小，
+					这样看起来很不协调。值得庆幸的是，可以通过将animation-fill-mode属性值设为forwards,告诉浏览器将该元素的格式保持为动画结束时的样子。
+					animation-fill-mode: forwards;
+
+					animation快捷方式，animation的快捷属性还是可以把事情简化不少的。它将animation-name,animation-duration,animation-timing-function,animation-iteration-count,
+					animation-direction,animation-delay以及animation-fill-mode合并成了一个属性。例如，可以用以下代码,比如：
+						.fade{
+							animation-name:fadeOut;
+							animation-duration:2s;
+							animation-timing-function:ease-in-out;
+							animation-iteration-count:2;
+							animation-direction:alternate;
+							animation-delay:5s;
+							animation-fill-mode:forwards;
+						}
+						改写成这样:
+						.fade{
+							animation:fadeOut 2s ease-in-out 2 alternate 5s forwards;
+						};
+						其实，实际上只有名称和持续时间是必要的。其他值都是可选的。如果想要给一个元素应用多个动画，只要列出要创建动画的属性并以逗号隔开即可。例如，要给.fade样式应用两个动画（比如
+						fadeOut和glow）,可以这样写：
+							.fade{
+								-webkit-animation:fadeOut 2s ease-in-out 2 alternate 5s forwards, glow 5s;
+								-moz-animation:fadeOut 2s ease-in-out 2 alternate 5s forwards, glow 5s;
+								-o-animation: fadeOut 2s ease-in-out 2 alternate 5s forwards, glow 5s;
+								animation: fadeOut 2s ease-in-out 2 alternate 5s forwards, glow 5s;
+							}
+ *				如何暂停animation
+ *					CSS3中还包括了另一个动画属性：animation-play-state,用来控制动画的播放。它只接受这两个关键字：running或者paused。要想暂停某一个动画，只要在样式中添加以下声明即可：
+ *						animation-play-state:paused;
+ *					但是，使用CSS时，实际上只有一种方法能够应用它，即用一个伪类。像transition一样，需要某种触发来暂停动画。一种是当访问者的鼠标经过动画时让他暂停下来。下面以.fade类样式
+ *					为例。
+ *						.fade{
+ *							animation: fadeOut 2s ease-in-out 2 alternate 5s forwards, glow 5s;
+ *							}
+ *					以上代码将给应用了fade类的所有元素运行两个动画：fadeOut和glow。假如想让访问者鼠标经过动画时就暂停，则只需要再添加一个样式即可：
+ *						.fade:hover{
+ *							animation-play-state:paused;
+ *						 	}
+ *					当然，他还是需要有供应商前缀的版本。还有一种更强有力的暂停动画的方法，就是利用JavaScript动态地给元素应用animation-play-state属性。
+ * 				
+ *    		
  */
